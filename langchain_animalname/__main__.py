@@ -1,10 +1,13 @@
-from .langchain_setup import setup
+from . import setup
 from .conversation import conversation
 
 
 def main():
-    chain = setup()
-    conversation("動物", chain)
+    langchain_number = setup.choice()
+    if langchain_number == "llm":
+        setup.llm()
+    elif langchain_number == "chat":
+        setup.chat()
 
 
 if __name__ == "__main__":
